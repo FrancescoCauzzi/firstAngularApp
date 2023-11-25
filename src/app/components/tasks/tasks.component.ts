@@ -1,16 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TASKS } from '../../mock-tasks';
 import { Task } from '../../Task';
 import { TaskItemComponent } from '../task-item/task-item.component';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.scss',
+  styleUrls: ['./tasks.component.scss'],
   imports: [CommonModule, TaskItemComponent],
 })
-export class TasksComponent {
-  tasks: Task[] = TASKS;
+export class TasksComponent implements OnInit {
+  tasks: Task[] = [];
+
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+  }
+
+  deleteTask(task: Task) {
+    this.taskService
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+      );
+  }
 }

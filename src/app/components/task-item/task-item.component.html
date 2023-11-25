@@ -1,12 +1,13 @@
-<div class="__task px-3">
+<div class="__task px-2">
   <div class="__task-title d-flex justify-content-between align-items-center">
     <h3>{{ task?.text }}</h3>
 
 
-    <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes" [size]="'2x'"></fa-icon>
 
+    <fa-icon (click)="onDelete(task)" class="__cursor-pointer" [ngStyle]="{'color': 'red'}" [icon]="faTimes"
+      [size]="'2x'"></fa-icon>
 
   </div>
-  <p>{{ task?.day }}</p>
+  <p class="fw-bold">{{ task.day }}</p>
 
 </div>
