@@ -5,11 +5,12 @@ $main-height: calc(100vh - ($header-height + $footer-height));
 
 // Use these variables in your SCSS code
 header {
-  height: $header-height;
+  min-height: $header-height;
+  margin-bottom: -4px;
 }
 
 main {
-  height: $main-height;
+  min-height: $main-height;
   background-color: #f0f0f0; // Example background color
 }
 
