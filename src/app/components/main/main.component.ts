@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { TasksComponent } from '../tasks/tasks.component';
+import { UiService } from '../../services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -12,8 +14,18 @@ import { TasksComponent } from '../tasks/tasks.component';
 })
 export class MainComponent {
   title: string = 'Task Tracker';
+  showAddTask: boolean = false;
+  subscription: Subscription = new Subscription();
+
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddTask = value));
+  }
+
+  ngOnInit(): void {}
 
   toggleAddTask() {
-    console.log('toggleAddTask');
+    this.uiService.toggleAddTask();
   }
 }

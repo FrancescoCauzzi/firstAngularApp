@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +12,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './app.component.scss',
   imports: [
     CommonModule,
-
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    FontAwesomeModule,
+    RouterLink,
   ],
 })
 export class AppComponent {}
