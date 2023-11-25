@@ -1,20 +1,18 @@
 // Define variables for header, main, and footer heights
 $header-height: 60px;
-$footer-height: 55px;
+$footer-height: 60px;
 $main-height: calc(100vh - ($header-height + $footer-height));
 
 // Use these variables in your SCSS code
-.header {
+header {
   height: $header-height;
-  background-color: #333; // Example background color
 }
 
-.main {
+main {
   height: $main-height;
   background-color: #f0f0f0; // Example background color
 }
 
-.footer {
+footer {
   height: $footer-height;
-  background-color: #333; // Example background color
 }
