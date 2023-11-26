@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "firtAngularApp": {
+    "firstAngularApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "firtAngularApp:build:production"
+              "buildTarget": "firstAngularApp:build:production"
             },
             "development": {
-              "buildTarget": "firtAngularApp:build:development"
+              "buildTarget": "firstAngularApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "firtAngularApp:build"
+            "buildTarget": "firstAngularApp:build"
           }
         },
         "test": {
